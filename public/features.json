@@ -1,0 +1,39 @@
+[
+    {
+        "id":1,
+      "title": "Assignment Management",
+      "img": "https://i.ibb.co/Kz7rFR7/1.png",
+      "description": "Assignment management is a feature that helps you to organize and track your assignments in an online course. You can view the details of each assignment, such as the instructions, rubric, and resources. You can also submit your work, receive feedback, and check your grade. Assignment management helps you to stay on top of your coursework and improve your learning outcomes."
+    },
+    {
+        "id":2,
+      "title": "Create Assignment",
+      "img": "https://i.ibb.co/Kz7rFR7/1.png",
+      "description": "Create assignment is a feature that allows you to design and assign your own tasks to your students or peers in an online course. You can choose the type of assignment, such as quiz, essay, project, or peer review. You can also set the parameters, such as the due date, submission format, grading criteria, and feedback options. Create assignment helps you to customize your learning experience and assess your students or peers."
+    },
+    {
+        "id":3,
+      "title": "Update Assignment",
+      "img": "https://i.ibb.co/Kz7rFR7/1.png",
+      "description": "Update assignment is a feature that allows you to modify and improve your assignments in an online course. You can change the information and settings of your assignments, such as the title, description, type, due date, submission format, grading criteria, and feedback options. You can also add or remove resources, questions, or rubrics. Update assignment helps you to adapt your assignments to your needs and preferences."
+    },
+    {
+        "id":4,
+      "title": "Marking Assignment",
+      "img": "https://i.ibb.co/Kz7rFR7/1.png",
+      "description": "Marking assignment is a feature that allows you to evaluate and provide feedback to your students or peers for their assignments in an online course. You can view the submissions of your students or peers, and use the rubric or criteria to grade them. You can also leave comments, suggestions, or praise to help them improve their work. Marking assignment helps you to measure and enhance the learning outcomes of your students or peers."
+    },
+    {
+        "id":5,
+      "title": "Problem Solving as a Team",
+      "img": "https://i.ibb.co/ThsysKD/2.jpg",
+      "description": "Problem solving as a team is a feature that allows you to collaborate and learn with other students or peers in an online course. You can join or create a team based on your interests, goals, or challenges. You can chat with your teammates, share your ideas, and work on a problem together. You can also use the online tools and resources to help you solve the problem. Problem solving as a team helps you to develop your communication, collaboration, and critical thinking skills."
+    },
+    {
+        "id":6,
+      "title": "Problem Solving as a Team",
+      "img": "https://i.ibb.co/ThsysKD/2.jpg",
+      "description": "Problem solving as a team is a feature that allows you to collaborate and learn with other students or peers in an online course. You can join or create a team based on your interests, goals, or challenges. You can chat with your teammates, share your ideas, and work on a problem together. You can also use the online tools and resources to help you solve the problem. Problem solving as a team helps you to develop your communication, collaboration, and critical thinking skills."
+    }
+  ]
+  
