@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
-const CreateAssignments = () => {
+const UpdateAssignment = () => {
     const {user} = useContext(AuthContext)
     //const email = user.email
-  const handleCreateAssignment = (e) => {
+    const assignment = useLoaderData()
+    const {_id, assignment_name, due_date, assignment_image, marks, level, description} = assignment
+    const navigate = useNavigate()
+    const handleUpdateAssignment = (e) => {
     e.preventDefault();
 
     const email = user.email
@@ -17,7 +21,7 @@ const CreateAssignments = () => {
     const level = form.level.value;
     const description = form.description.value;
 
-    const newAssignment = {
+    const updatedAssignment = {
       email,
       assignment_name,
       due_date,
@@ -27,29 +31,30 @@ const CreateAssignments = () => {
       description,
     };
     
-    console.log(newAssignment);
+    console.log(updatedAssignment);
 
     fetch(
-      "http://localhost:5000/assignments",
+      `http://localhost:5000/assignment/${_id}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(newAssignment),
+        body: JSON.stringify(updatedAssignment),
       }
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success",
-            text: "Assignment Created successfully",
+            text: "Assignment Updated successfully",
             icon: "success",
             confirmButtonColor: "#3085d6",
             confirmButtonText: "Close",
           });
+          navigate('/assignments')
         }
       });
   };
@@ -58,11 +63,11 @@ const CreateAssignments = () => {
       <div className="hero min-h-screen ">
         <div className="hero-content w-full">
           <form
-            onSubmit={handleCreateAssignment}
+            onSubmit={handleUpdateAssignment}
             className="card card-body w-full shadow-2xl bg-base-100"
           >
             <h2 className="text-3xl p-4 border-l-4 border-[#37c44e] font-bold">
-              Create A New Assignment
+              Update Assignment: {assignment_name}
             </h2>
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
               <div>
@@ -74,7 +79,7 @@ const CreateAssignments = () => {
                   </label>
                   <input
                     type="text"
-                    name="assignment_name"
+                    name="assignment_name" defaultValue={assignment_name}
                     placeholder="Enter Assignment Title"
                     className="input input-bordered"
                     required
@@ -86,7 +91,7 @@ const CreateAssignments = () => {
                   </label>
                   <input
                     type="date"
-                    name="due_date"
+                    name="due_date" defaultValue={due_date}
                     placeholder="Enter Due Date"
                     className="input input-bordered"
                     required
@@ -102,7 +107,7 @@ const CreateAssignments = () => {
                   </label>
                   <input
                     type="url"
-                    name="assignment_image"
+                    name="assignment_image" defaultValue={assignment_image}
                     placeholder="Enter Image URL"
                     className="input input-bordered"
                     required
@@ -114,7 +119,7 @@ const CreateAssignments = () => {
                   </label>
                   <input
                     type="number"
-                    name="marks"
+                    name="marks" defaultValue={marks}
                     placeholder="Enter Assignment Marks"
                     className="input input-bordered"
                     required
@@ -128,7 +133,7 @@ const CreateAssignments = () => {
                 <label className="label">
                   <span className="label-text font-semibold">Level</span>
                 </label>
-                <select name="level" className="select select-bordered w-full text-lg">
+                <select defaultValue={level} name="level" className="select select-bordered w-full text-lg">
                   <option>Easy</option>
                   <option>Medium</option>
                   <option>Hard</option>
@@ -139,7 +144,7 @@ const CreateAssignments = () => {
                   <span className="label-text font-semibold">Description</span>
                 </label>
                 <textarea
-                  type="text"
+                  type="text" defaultValue={description}
                   name="description"
                   placeholder="Write description about the assignment"
                   className="input h-24 input-bordered"
@@ -147,7 +152,7 @@ const CreateAssignments = () => {
                 />
               </div>
               <button className="btn w-full bg-gradient-to-r from-[#37c44e] to-[#269136] hover:to-[#338540] text-[#FFF] ">
-                Create
+                Update
               </button>
             </div>
           </form>
@@ -157,4 +162,4 @@ const CreateAssignments = () => {
   );
 };
 
-export default CreateAssignments;
+export default UpdateAssignment;
