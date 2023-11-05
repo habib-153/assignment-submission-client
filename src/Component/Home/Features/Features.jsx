@@ -18,13 +18,13 @@ const Features = () => {
           <div key={feature.id}>
             <div className="card p-3 card-side flex flex-col md:flex-row bg-base-100 shadow-xl">
               <figure className="flex-1">
-                <img className="rounded-xl"
+                <img className="rounded"
                   src={feature.img}
                   alt="Movie"
                 />
               </figure>
               <div className="card-body flex-1">
-                <h2 className="card-title">{feature.title}</h2>
+                <h2 className="card-title text-2xl">{feature.title}</h2>
                 <p>{feature.description}</p>
               </div>
             </div>

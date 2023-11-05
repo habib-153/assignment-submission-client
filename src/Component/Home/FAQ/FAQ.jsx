@@ -2,7 +2,7 @@ import img from "./FAQ.webp";
 const FAQ = () => {
   return (
     <div className="mt-4 md:mt-12">
-        <h2 className="text-4xl my-4 text-center font-semibold">Frequently Asked Questions</h2>
+        <h2 className="text-4xl my-4 text-center font-semibold">Frequently <span className="text-[#1eb123f9]">Asked</span> Questions</h2>
     <div className="flex items-center justify-between gap-4 flex-col md:flex-row">
       <div className="flex-1">
         <img className="w-full rounded-xl" src={img} alt="" />
