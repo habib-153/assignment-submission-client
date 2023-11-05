@@ -1,7 +1,9 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import A_Card from "./A_Card";
 import './A.css'
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Assignments = () => {
     const [assignments, setAssignments] = useState([])
@@ -9,6 +11,7 @@ const Assignments = () => {
     const [count, setCount] = useState(0)
     const [currentPage, setCurrentPage] = useState(0)
     const [itemsPerPage, setItemPerPage] = useState(5);
+    const {user} = useContext(AuthContext)
 
     const numberOfPages = Math.ceil(count/itemsPerPage)
     const pages = [...Array(numberOfPages).keys()]
@@ -66,6 +69,43 @@ const Assignments = () => {
             setCurrentPage(currentPage+1)
         }
     }
+    const handleDelete = (id, email) =>{
+        
+        if(user?.email == email){
+            // console.log("hello")
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  fetch(`http://localhost:5000/assignment/${id}`,{
+                      method: 'DELETE',
+                  })
+                    .then((res) => res.json())
+                    .then((data) => {
+                      console.log(data);
+                      if (data.deletedCount > 0) {
+                        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                        const remaining = assignments.filter(assignment => assignment._id !== id);
+                        setDisplayAssignments(remaining)
+                      }
+                    });
+                }
+              });
+        }
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Only the Author can delete it',
+                showConfirmButton: true,
+            })
+        }
+      }
 
     return (
         <div>
@@ -91,6 +131,7 @@ const Assignments = () => {
                 {
                     displayAssignments.map(assignment => <A_Card 
                     key={assignment._id} assignment={assignment}
+                    handleDelete={handleDelete}
                     ></A_Card>)
                 }
             </div>
