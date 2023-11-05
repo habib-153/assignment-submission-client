@@ -27,12 +27,11 @@ const A_Card = ({ assignment }) => {
         </div>
       </div>
       <div className="card-actions">
-        <div className="flex items-center flex-row md:flex-col gap-4 md:space-y-4 mr-0">
-          <button className="btn btn-outline btn-ghost">View</button>
+        <div className="flex items-center flex-row md:flex-col gap-4 md:space-y-4 mr-0 md:w-24">
+          <button className="btn btn-outline btn-ghost w-full">View</button>
           {/* <Link to={`updateCoffee/${_id}`}> */}
-          <button className="btn btn-outline btn-ghost">Edit</button>
+          <button className="btn btn-outline btn-ghost w-full">Update</button>
           {/* </Link> */}
-          <button className="btn btn-outline btn-warning">X</button>
         </div>
       </div>
     </div>
