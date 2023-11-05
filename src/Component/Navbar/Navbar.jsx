@@ -60,7 +60,7 @@ const Navbar = () => {
         user ? 
         <li className="outline p-2 rounded-lg">
         <NavLink
-          to="create assignments"
+          to="createAssignments"
           className={({ isActive, isPending }) =>
           isActive
           ? "text-[#37c44e] text-lg underline font-bold"
@@ -88,26 +88,7 @@ const Navbar = () => {
           : "text-lg text_color font-semibold"
           }
         >
-          Submitted
-        </NavLink>
-      </li>
-        :
-        undefined
-      }
-      {
-        user ? 
-        <li className="outline p-2 rounded-lg">
-        <NavLink
-          to="myAssignments"
-          className={({ isActive, isPending }) =>
-          isActive
-          ? "text-[#37c44e] text-lg underline font-bold"
-          : isPending
-          ? ""
-          : "text-lg text_color font-semibold"
-          }
-        >
-          My assignments
+          Submitted Assignments
         </NavLink>
       </li>
         :
@@ -117,7 +98,7 @@ const Navbar = () => {
     </div>
   );
   return (
-    <div className="navbar bg-base-300  text-[#FFF]">
+    <div className="navbar bg-base-300  text-[#3a3939f5]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -145,7 +126,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-3">
           <img className="w-[50px] h-[50px] rounded-full" src={navImg} alt="" />
-          <p className="text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#37c44e] to-[#269136]">
+          <p className="text-lg md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#37c44e] to-[#269136]">
           Online Group-Study
           </p>
         </div>
@@ -161,7 +142,7 @@ const Navbar = () => {
          <div  className="tooltip tooltip-left" data-tip={user.displayName}>
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-11 rounded-full">
-                <img data-tip="hello" src={user.photoURL} alt={user.displayName} />
+                <img src={user.photoURL} alt={user.displayName} />
               </div>
               </label>
               </div>
@@ -170,8 +151,27 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#37c44e] rounded-box w-52"
             >
               <li>
-                <p className="btn btn-sm  btn-ghost">{user.displayName}</p>
+                <p className="btn btn-sm text-white btn-ghost">{user.displayName}</p>
               </li>
+              {
+        user ? 
+        <li className=" p-2 rounded-lg">
+        <NavLink
+          to="myAssignments"
+          className={({ isActive, isPending }) =>
+          isActive
+          ? "text-[#37c44e] text-lg underline font-bold"
+          : isPending
+          ? ""
+          : "text-lg text-white font-semibold"
+          }
+        >
+          My assignments
+        </NavLink>
+      </li>
+        :
+        undefined
+      }
               <li>
                 <button
                   onClick={handleLogOut}
