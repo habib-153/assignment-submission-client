@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Details = () => {
   const assignment = useLoaderData();
-
+  const {user} = useContext(AuthContext)
+  const examinee = user.displayName
   const {
     _id,
     email,
@@ -17,13 +21,14 @@ const Details = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, assignment_name, marks);
+    console.log(examinee,email, assignment_name, marks);
 
     const form = e.target;
     const assignment_pdf = form.assignment_pdf.value;
     const note = form.note.value;
     const submittedAssignment = {
       assignment_name,
+      examinee,
       assignment_pdf,
       email,
       marks,

@@ -16,6 +16,7 @@ import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 import Assignments from "./Component/Assignments/Assignments";
 import UpdateAssignment from "./Component/Update/UpdateAssignment";
 import Details from "./Component/Details/Details";
+import Sub_Assignment from "./Component/SubmittedAssignment/Sub_Assignment";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,14 @@ const router = createBrowserRouter([
           <Details></Details>
         </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+      },
+      {
+        path: "submitted",
+        element: 
+        <PrivateRoute>
+          <Sub_Assignment></Sub_Assignment>
+        </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/submittedAssignments')
       },
       {
         path:"createAssignments",
