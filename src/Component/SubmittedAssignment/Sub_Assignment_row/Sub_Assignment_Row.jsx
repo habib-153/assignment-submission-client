@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 
-const Sub_Assignment_Row = ({sub_Assignment}) => {
-    const {assignment_name, examinee, assignment_pdf,
-        email, marks, note, assignment_image,status} = sub_Assignment
-    return (
-        <tr>
+const Sub_Assignment_Row = ({ sub_Assignment }) => {
+  const {
+    _id, assignment_name, examinee, email,
+    marks,status,
+  } = sub_Assignment;
+  return (
+    <tr>
       <td>
         <div className="flex items-center space-x-3">
           <div>
@@ -16,20 +19,19 @@ const Sub_Assignment_Row = ({sub_Assignment}) => {
         </div>
       </td>
       <th>
-        {
-            status === 'confirm'? 
-            <span className="font-bold text-lg text-[#22d315e1]">completed</span>
-            :
-            <span className="">Pending</span>
-        }
+        {status === "confirmed" ? (
+          <span className="font-bold text-lg text-[#22d315e1]">completed</span>
+        ) : (
+          <span className="">Pending</span>
+        )}
       </th>
       <th className="text-center">
-      <button className="btn btn-outline ">
-            Give Mark
-      </button>
+        <Link to={`/giveMark/${_id}`}>
+          <button className="btn btn-outline">Give Mark</button>
+        </Link>
       </th>
     </tr>
-    );
+  );
 };
 
 export default Sub_Assignment_Row;

@@ -17,6 +17,7 @@ import Assignments from "./Component/Assignments/Assignments";
 import UpdateAssignment from "./Component/Update/UpdateAssignment";
 import Details from "./Component/Details/Details";
 import Sub_Assignment from "./Component/SubmittedAssignment/Sub_Assignment";
+import GiveMark from "./Component/SubmittedAssignment/GiveMark/GiveMark";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,14 @@ const router = createBrowserRouter([
           <Sub_Assignment></Sub_Assignment>
         </PrivateRoute>,
         loader: () => fetch('http://localhost:5000/submittedAssignments')
+      },
+      {
+        path: "giveMark/:id",
+        element: 
+        <PrivateRoute>
+          <GiveMark></GiveMark>
+        </PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/submittedAssignments/${params.id}`)
       },
       {
         path:"createAssignments",

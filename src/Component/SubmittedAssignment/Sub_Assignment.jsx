@@ -1,12 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData} from "react-router-dom";
 import Sub_Assignment_Row from "./Sub_Assignment_row/Sub_Assignment_Row";
 
 const Sub_Assignment = () => {
   const sub_Assignments = useLoaderData();
 
+  const remaining = sub_Assignments.filter(assignment=> assignment.status !== 'confirmed')
+  //console.log(remaining)
   return (
     <div>
-      <h2 className="text-center text-2xl">Your bookings: {sub_Assignments.length}</h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -18,7 +19,7 @@ const Sub_Assignment = () => {
             </tr>
           </thead>
           <tbody>
-            {sub_Assignments.map((sub_Assignment) => (
+            {remaining.map((sub_Assignment) => (
               <Sub_Assignment_Row
                 key={sub_Assignment._id}
                 sub_Assignment={sub_Assignment}
