@@ -75,7 +75,6 @@ const router = createBrowserRouter([
         <PrivateRoute>
           <Sub_Assignment></Sub_Assignment>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/submittedAssignments')
       },
       {
         path: "giveMark/:id",

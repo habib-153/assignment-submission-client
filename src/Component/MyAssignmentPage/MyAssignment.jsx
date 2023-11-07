@@ -1,19 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import axios from "axios";
+
 import MyAssignment_row from "./MyAssignment_row";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const MyAssignment = () => {
     const {user} = useContext(AuthContext)
     const [myAssignments, setMyAssignments] = useState([])
-    const url = `http://localhost:5000/submittedAssignments?email=${user?.email}`
+    const axiosSecure = useAxiosSecure()
+    const url = `/submittedAssignments?email=${user?.email}`
 
     useEffect(()=>{
-        axios.get(url)
-        .then(res =>{
-          setMyAssignments(res.data)
-        })
-    },[url])
+        axiosSecure.get(url)
+        .then(res => setMyAssignments(res.data))
+        
+    },[axiosSecure, url])
 
     return (
         <div>

@@ -1,8 +1,19 @@
-import {  useLoaderData} from "react-router-dom";
+
+import axios from "axios";
 import Sub_Assignment_Row from "./Sub_Assignment_row/Sub_Assignment_Row";
+import { useEffect, useState } from "react";
 
 const Sub_Assignment = () => {
-  const sub_Assignments = useLoaderData();
+  const [sub_Assignments, setSub_assignment] = useState([]);
+  const url = 'http://localhost:5000/allSubmission'
+  
+
+  useEffect(()=>{
+    axios.get(url, {withCredentials: true})
+   .then(res =>{
+     setSub_assignment(res.data)
+   })
+},[url])
 
   const remaining = sub_Assignments.filter(assignment=> assignment.status !== 'confirmed')
   //console.log(remaining)
