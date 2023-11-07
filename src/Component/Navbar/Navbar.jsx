@@ -160,7 +160,7 @@ const Navbar = () => {
           to="myAssignments"
           className={({ isActive, isPending }) =>
           isActive
-          ? "text-[#37c44e] text-lg underline font-bold"
+          ? " text-lg underline font-bold"
           : isPending
           ? ""
           : "text-lg text-white font-semibold"
