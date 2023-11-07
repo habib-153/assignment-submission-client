@@ -51,9 +51,9 @@ const A_Card = ({ assignment, handleDelete }) => {
       </div>
       <div className="card-actions">
         <div className="flex items-center flex-row md:flex-col gap-4 md:space-y-4 mr-0 md:w-24">
-          <button onClick={()=>handleViewAssignment(_id)} className="btn btn-outline btn-ghost w-full">View</button>
-          <button onClick={()=>handleUpdate(_id)} className="btn btn-outline btn-ghost w-full hover:bg-[#15b32c]">Update</button>
-          <button onClick={()=>handleDelete(_id, email)} className="btn btn-outline btn-ghost w-full hover:bg-[#ec3333]">Delete</button>
+          <button onClick={()=>handleViewAssignment(_id)} className="btn btn-outline btn-ghost md:w-full">View</button>
+          <button onClick={()=>handleUpdate(_id)} className="btn btn-outline btn-ghost md:w-full hover:bg-[#15b32c]">Update</button>
+          <button onClick={()=>handleDelete(_id, email)} className="btn btn-outline btn-ghost md:w-full hover:bg-[#ec3333]">Delete</button>
         </div>
       </div>
     </div>

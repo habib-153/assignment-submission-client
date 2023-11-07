@@ -23,8 +23,8 @@ const MyAssignment = () => {
           <thead>
             <tr>
               <th>Assignment Details</th>
-              <th>Status</th>
-              <th className="text-center">Action</th>
+              <th className="text-center">Status</th>
+              <th className="text-center hidden md:block">Action</th>
             </tr>
           </thead>
           <tbody>

@@ -22,16 +22,39 @@ const MyAssignment_row = ({ myAssignment }) => {
           </div>
         </div>
       </td>
-      <th>
+      <th className="text-center">
         {status === "confirmed" ? (
-          <span className="font-bold text-lg text-[#22d315e1]">
+            <div className="flex flex-col text-center">
+                <span className="font-bold md:text-lg text-[#22d315e1]">
             Check Completed
           </span>
+          <button
+          onClick={() => document.getElementById("my_modal_1").showModal()}
+          className="btn btn-outline md:hidden"
+        >
+          See Details
+        </button>
+        <dialog id="my_modal_1" className="modal">
+          <div className="modal-box">
+            <h3 className="font-bold text-xl">Hello! Dear</h3>
+            <div className="py-4 space-y-2">
+              <p>Your Obtained Mark: {obtained_marks}</p>
+              <p>Feedback: {feedback}</p>
+            </div>
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+            </div>
+          
         ) : (
           <span className="">Pending</span>
         )}
       </th>
-      <th className="text-center">
+      <th className="text-center hidden md:block">
         {
            obtained_marks ? (
             <>
