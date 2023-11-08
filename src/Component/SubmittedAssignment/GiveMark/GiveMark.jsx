@@ -2,13 +2,13 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
- import { Document, Page, pdfjs } from "react-pdf";
-// import { useState } from "react";
+// import { Document, Page, pdfjs } from "react-pdf";
+import { useState } from "react";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.js',
-    import.meta.url,
-  ).toString();
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//     'pdfjs-dist/build/pdf.worker.min.js',
+//     import.meta.url,
+//   ).toString();
 const GiveMark = () => {
   const assignment = useLoaderData();
   const { _id,
@@ -21,6 +21,7 @@ const GiveMark = () => {
     assignment_image,
     status,
   } = assignment;
+  const [pdf]=useState(assignment_pdf)
 
   const handleConfirm = (e) =>{
     e.preventDefault();
@@ -54,26 +55,26 @@ const GiveMark = () => {
     })
 }
   return (
-    <div className="mt-12">
+    <div className="mt-12 p-4">
       <h2 className="md:text-3xl text-lg p-4 border-l-4 border-[#37c44e] font-bold">
         Evaluate Assignment: {assignment_name}
       </h2>
-      <p className="text-[18px] mt-6">{note}</p>
-      <p className="mt-4">
+      <p className="text-[18px] mt-6">Note: {note}</p>
+      <p className="my-4">
         Submitted Answer pdf:{" "}
         <a className="font-semibold text-[#37c44e]" href={assignment_pdf}>
-          {assignment_pdf}
+          Click here
         </a>
       </p>
       <div>
-        <Document file={assignment_pdf}>
+        {/* <Document file={pdf}>
         <Page />
-      </Document>
+      </Document> */}
 
         {/* <Document file={assignment_pdf} onLoadSuccess={onDocumentLoadSuccess} workerSrc="/pdf.worker.js">
           <Page pageNumber={pageNumber} />
         </Document> */}
-
+        <iframe src={pdf} width='100%' height="480" allow="autoplay"></iframe>
       </div>
       <form onSubmit={handleConfirm} action="">
         <div className="form-control">
