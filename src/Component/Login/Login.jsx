@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { motion } from "framer-motion"
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -86,12 +87,13 @@ const Login = () => {
                 </Link>
               </p>
 
-              <button
+              <motion.button whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
                 type="submit"
                 className="btn text-white w-full bg-[#37c44e] hover:bg-[#269136]"
               >
                 Login
-              </button>
+              </motion.button>
             </div>
           </form>
           <div className="">

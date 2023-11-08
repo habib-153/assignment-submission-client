@@ -11,7 +11,7 @@ const Assignments = () => {
     const [count, setCount] = useState(0)
     const [currentPage, setCurrentPage] = useState(0)
     const [itemsPerPage, setItemPerPage] = useState(5);
-    const {user} = useContext(AuthContext)
+    const {user, loading} = useContext(AuthContext)
 
     const numberOfPages = Math.ceil(count/itemsPerPage)
     const pages = [...Array(numberOfPages).keys()]
@@ -105,6 +105,9 @@ const Assignments = () => {
                 showConfirmButton: true,
             })
         }
+      }
+      if(loading){
+        return <div className="text-5xl w-full text-center"><span className="loading my-[20%] loading-dots loading-lg"></span></div>
       }
 
     return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { motion } from "framer-motion"
 const Features = () => {
   const [features, setFeatures] = useState([]);
 
@@ -17,12 +17,10 @@ const Features = () => {
         {features.map((feature) => (
           <div key={feature.id}>
             <div className="card p-3 card-side flex flex-col md:flex-row bg-base-100 shadow-xl">
-              <figure className="flex-1">
-                <img className="rounded"
-                  src={feature.img}
-                  alt="Movie"
-                />
-              </figure>
+              <motion.figure whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }} className="flex-1">
+                <img className="rounded" src={feature.img} alt="Movie" />
+              </motion.figure>
               <div className="card-body flex-1">
                 <h2 className="card-title text-2xl">{feature.title}</h2>
                 <p>{feature.description}</p>

@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-// import { Document, Page, pdfjs } from "react-pdf";
+
+ import { Document, Page, pdfjs } from "react-pdf";
 // import { useState } from "react";
 
-// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-//     'pdfjs-dist/build/pdf.worker.min.js',
-//     import.meta.url,
-//   ).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.js',
+    import.meta.url,
+  ).toString();
 const GiveMark = () => {
   const assignment = useLoaderData();
   const { _id,
@@ -65,13 +66,14 @@ const GiveMark = () => {
         </a>
       </p>
       <div>
-        {/* <Document file={assignment_pdf}>
+        <Document file={assignment_pdf}>
         <Page />
-      </Document> */}
+      </Document>
 
         {/* <Document file={assignment_pdf} onLoadSuccess={onDocumentLoadSuccess} workerSrc="/pdf.worker.js">
           <Page pageNumber={pageNumber} />
         </Document> */}
+
       </div>
       <form onSubmit={handleConfirm} action="">
         <div className="form-control">
