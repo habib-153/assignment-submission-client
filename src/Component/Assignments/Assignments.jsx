@@ -15,10 +15,10 @@ const Assignments = () => {
 
     const numberOfPages = Math.ceil(count/itemsPerPage)
     const pages = [...Array(numberOfPages).keys()]
-    const url = `http://localhost:5000/assignments?page=${currentPage}&size=${itemsPerPage}`
+    const url = `https://assignment-11-server-side-category-0001.vercel.app/assignments?page=${currentPage}&size=${itemsPerPage}`
 
     useEffect(()=>{
-        fetch('http://localhost:5000/assignmentsCount')
+        fetch('https://assignment-11-server-side-category-0001.vercel.app/assignmentsCount')
         .then(res => res.json())
         .then(data=> setCount(data.count))
     },[])
@@ -83,7 +83,7 @@ const Assignments = () => {
                 confirmButtonText: "Yes, delete it!",
               }).then((result) => {
                 if (result.isConfirmed) {
-                  fetch(`http://localhost:5000/assignment/${id}`,{
+                  fetch(`https://assignment-11-server-side-category-0001.vercel.app/assignment/${id}`,{
                       method: 'DELETE',
                   })
                     .then((res) => res.json())

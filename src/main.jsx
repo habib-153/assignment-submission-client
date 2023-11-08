@@ -59,7 +59,7 @@ const router = createBrowserRouter([
         <PrivateRoute>
           <UpdateAssignment></UpdateAssignment>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-11-server-side-category-0001.vercel.app/assignment/${params.id}`)
       },
       {
         path: "viewAssignment/:id",
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         <PrivateRoute>
           <Details></Details>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-11-server-side-category-0001.vercel.app/assignment/${params.id}`)
       },
       {
         path: "submitted",
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
         <PrivateRoute>
           <GiveMark></GiveMark>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/submittedAssignments/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-11-server-side-category-0001.vercel.app/submittedAssignments/${params.id}`)
       },
       {
         path:"createAssignments",

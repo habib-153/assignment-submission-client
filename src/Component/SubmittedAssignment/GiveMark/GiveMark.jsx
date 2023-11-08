@@ -34,7 +34,7 @@ const GiveMark = () => {
         obtained_marks, feedback, status
     };
 
-    fetch(`http://localhost:5000/submittedAssignments/${_id}`,{
+    fetch(`https://assignment-11-server-side-category-0001.vercel.app/submittedAssignments/${_id}`,{
         method: 'PATCH',
         headers:{
             'content-type': 'application/json'

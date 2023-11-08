@@ -37,7 +37,7 @@ const Details = () => {
     };
 
     console.log(submittedAssignment);
-    fetch("http://localhost:5000/submittedAssignments", {
+    fetch("https://assignment-11-server-side-category-0001.vercel.app/submittedAssignments", {
       method: "POST",
       headers: {
         "content-type": "application/json",

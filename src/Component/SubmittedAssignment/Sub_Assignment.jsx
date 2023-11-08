@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const Sub_Assignment = () => {
   const [sub_Assignments, setSub_assignment] = useState([]);
-  const url = 'http://localhost:5000/allSubmission'
+  const url = 'https://assignment-11-server-side-category-0001.vercel.app/allSubmission'
   
 
   useEffect(()=>{
