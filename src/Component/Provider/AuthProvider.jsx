@@ -51,7 +51,7 @@ const AuthProvider = ({children}) => {
             else{
                 axios.post('https://assignment-11-server-side-category-0001.vercel.app/logout', loggedUser,{withCredentials: true})
                 .then(res =>{
-                    console.log(res.data)
+                    console.log("hitted",res.data)
                 })
             }
         });

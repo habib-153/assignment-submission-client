@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const A_Card = ({ assignment, handleDelete }) => {
     const {user} = useContext(AuthContext)
@@ -38,7 +40,7 @@ const A_Card = ({ assignment, handleDelete }) => {
   return (
     <div className="card p-4 flex flex-col md:flex-row items-center justify-between card-side bg-base-100 shadow-xl">
       <figure className="w-[300px] h-[200px] rounded">
-        <img className="w-full h-full object-contain" src={assignment_image} alt="Movie" />
+        <img className="w-full h-full object-contain" src={assignment_image } alt="Movie" />
       </figure>
       <div className="card-body p-4 flex-1">
         <h2 className="card-title">{assignment_name}</h2>
@@ -56,7 +58,7 @@ const A_Card = ({ assignment, handleDelete }) => {
           <button onClick={()=>handleDelete(_id, email)} className="btn btn-outline btn-ghost md:w-full hover:bg-[#ec3333]">Delete</button>
         </div>
       </div>
-    </div>
+    </div>||<Skeleton count={10} />
   );
 };
 

@@ -4,6 +4,9 @@ import A_Card from "./A_Card";
 import './A.css'
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 const Assignments = () => {
     const [assignments, setAssignments] = useState([])
@@ -107,7 +110,10 @@ const Assignments = () => {
         }
       }
       if(loading){
-        return <div className="text-5xl w-full text-center"><span className="loading my-[20%] loading-dots loading-lg"></span></div>
+        return <div className="text-5xl w-full text-center">
+          <span className="loading my-[20%] loading-dots loading-lg"></span>
+         
+          </div>
       }
 
     return (
@@ -135,7 +141,7 @@ const Assignments = () => {
                     displayAssignments.map(assignment => <A_Card 
                     key={assignment._id} assignment={assignment}
                     handleDelete={handleDelete}
-                    ></A_Card>)
+                    ></A_Card>)|| <Skeleton />
                 }
             </div>
             <div className='pagination'>

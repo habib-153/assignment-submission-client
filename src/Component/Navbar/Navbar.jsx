@@ -1,27 +1,26 @@
 import { Link, NavLink } from "react-router-dom";
-import navImg from './Nav_photo.jpeg'
+import navImg from "./Nav_photo.jpeg";
 import { useContext } from "react";
-import '../Layout/Root.css';
+import "../Layout/Root.css";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut, setLoading } = useContext(AuthContext);
 
-  const setDarkMode =() =>{
+  const setDarkMode = () => {
     document.querySelector("body").setAttribute("data-theme", "dark");
-  }
+  };
 
-  const setLightMode =() =>{
-    document.querySelector("body").setAttribute("data-theme", "light")
-  }
-  const toggleTheme = e =>{
-    if(e.target.checked){
-      setDarkMode()
-      setLoading(false)
-    }
-    else setLightMode();
-    setLoading(false)
-  }
+  const setLightMode = () => {
+    document.querySelector("body").setAttribute("data-theme", "light");
+  };
+  const toggleTheme = (e) => {
+    if (e.target.checked) {
+      setDarkMode();
+      setLoading(false);
+    } else setLightMode();
+    setLoading(false);
+  };
   const handleLogOut = () => {
     logOut();
   };
@@ -46,55 +45,48 @@ const Navbar = () => {
         <NavLink
           to="assignments"
           className={({ isActive, isPending }) =>
-          isActive
-          ? "text-[#37c44e] text-lg underline font-bold"
-          : isPending
-          ? ""
-          : "text-lg text_color font-semibold"
+            isActive
+              ? "text-[#37c44e] text-lg underline font-bold"
+              : isPending
+              ? ""
+              : "text-lg text_color font-semibold"
           }
         >
           Assignments
         </NavLink>
       </li>
-      {
-        user ? 
+      {user ? (
         <li className="outline p-2 rounded-lg">
-        <NavLink
-          to="createAssignments"
-          className={({ isActive, isPending }) =>
-          isActive
-          ? "text-[#37c44e] text-lg underline font-bold"
-          : isPending
-          ? ""
-          : "text-lg text_color font-semibold"
-          }
-        >
-          Create assignments
-        </NavLink>
-      </li>
-        :
-        undefined
-      }
-      {
-        user ? 
+          <NavLink
+            to="createAssignments"
+            className={({ isActive, isPending }) =>
+              isActive
+                ? "text-[#37c44e] text-lg underline font-bold"
+                : isPending
+                ? ""
+                : "text-lg text_color font-semibold"
+            }
+          >
+            Create assignments
+          </NavLink>
+        </li>
+      ) : undefined}
+      {user ? (
         <li className="outline p-2 rounded-lg">
-        <NavLink
-          to="submitted"
-          className={({ isActive, isPending }) =>
-          isActive
-          ? "text-[#37c44e] text-lg underline font-bold"
-          : isPending
-          ? ""
-          : "text-lg text_color font-semibold"
-          }
-        >
-          Submitted Assignments
-        </NavLink>
-      </li>
-        :
-        undefined
-      }
-      
+          <NavLink
+            to="submitted"
+            className={({ isActive, isPending }) =>
+              isActive
+                ? "text-[#37c44e] text-lg underline font-bold"
+                : isPending
+                ? ""
+                : "text-lg text_color font-semibold"
+            }
+          >
+            Submitted Assignments
+          </NavLink>
+        </li>
+      ) : undefined}
     </div>
   );
   return (
@@ -127,7 +119,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <img className="w-[50px] h-[50px] rounded-full" src={navImg} alt="" />
           <p className="text-lg md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#37c44e] to-[#269136]">
-          Online Group-Study
+            Online Group-Study
           </p>
         </div>
       </div>
@@ -136,42 +128,43 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="px-1 ">{lists}</ul>
         </div>
-        <button><input onChange={toggleTheme} type="checkbox" className="toggle"/></button>
+        <button>
+          <input onChange={toggleTheme} type="checkbox" className="toggle" />
+        </button>
         {user?.email ? (
           <div className="dropdown dropdown-end">
-         <div  className="tooltip tooltip-left" data-tip={user.displayName}>
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-11 rounded-full">
-                <img src={user.photoURL} alt={user.displayName} />
-              </div>
+            <div className="tooltip tooltip-left" data-tip={user.displayName}>
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-11 rounded-full">
+                  <img src={user.photoURL} alt={user.displayName} />
+                </div>
               </label>
-              </div>
+            </div>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#37c44e] rounded-box w-52"
             >
               <li>
-                <p className="btn btn-sm text-white btn-ghost">{user.displayName}</p>
+                <p className="btn btn-sm text-white btn-ghost">
+                  {user.displayName}
+                </p>
               </li>
-              {
-        user ? 
-        <li className=" p-2 rounded-lg">
-        <NavLink
-          to="myAssignments"
-          className={({ isActive, isPending }) =>
-          isActive
-          ? " text-lg underline font-bold"
-          : isPending
-          ? ""
-          : "text-lg text-white font-semibold"
-          }
-        >
-          My assignments
-        </NavLink>
-      </li>
-        :
-        undefined
-      }
+              {user ? (
+                <li className=" p-2 rounded-lg">
+                  <NavLink
+                    to="myAssignments"
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? " text-lg underline font-bold"
+                        : isPending
+                        ? ""
+                        : "text-lg text-white font-semibold"
+                    }
+                  >
+                    My assignments
+                  </NavLink>
+                </li>
+              ) : undefined}
               <li>
                 <button
                   onClick={handleLogOut}

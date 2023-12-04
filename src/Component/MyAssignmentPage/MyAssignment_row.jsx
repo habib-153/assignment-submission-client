@@ -19,6 +19,7 @@ const MyAssignment_row = ({ myAssignment }) => {
             <div className="font-bold">{assignment_name}</div>
             <div className="text-sm opacity-50">{examinee}</div>
             <div className="text-sm opacity-50">Marks: {marks}</div>
+            <div className="text-sm opacity-50">Your Obtained Mark: {obtained_marks}</div>
           </div>
         </div>
       </td>
@@ -38,7 +39,6 @@ const MyAssignment_row = ({ myAssignment }) => {
           <div className="modal-box">
             <h3 className="font-bold text-xl">Hello! Dear</h3>
             <div className="py-4 space-y-2">
-              <p>Your Obtained Mark: {obtained_marks}</p>
               <p>Feedback: {feedback}</p>
             </div>
             <div className="modal-action">

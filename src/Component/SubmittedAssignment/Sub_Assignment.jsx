@@ -2,6 +2,7 @@
 import axios from "axios";
 import Sub_Assignment_Row from "./Sub_Assignment_row/Sub_Assignment_Row";
 import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
 
 const Sub_Assignment = () => {
   const [sub_Assignments, setSub_assignment] = useState([]);
@@ -35,7 +36,7 @@ const Sub_Assignment = () => {
                 key={sub_Assignment._id}
                 sub_Assignment={sub_Assignment}
               ></Sub_Assignment_Row>
-            ))}
+            )) || <Skeleton/>}
           </tbody>
         </table>
       </div>

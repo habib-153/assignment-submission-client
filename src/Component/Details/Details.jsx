@@ -10,7 +10,6 @@ const Details = () => {
   const examinee = user.displayName
   const {
     _id,
-    email,
     assignment_name,
     due_date,
     assignment_image,
@@ -21,8 +20,8 @@ const Details = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(examinee,email, assignment_name, marks);
-
+    console.log(examinee, assignment_name, marks);
+    const email= user?.email
     const form = e.target;
     const assignment_pdf = form.assignment_pdf.value;
     const note = form.note.value;

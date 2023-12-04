@@ -13,7 +13,6 @@ const MyAssignment = () => {
     useEffect(()=>{
         axiosSecure.get(url)
         .then(res => setMyAssignments(res.data))
-        
     },[axiosSecure, url])
 
     return (

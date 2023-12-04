@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const Features = () => {
   const [features, setFeatures] = useState([]);
 
@@ -22,7 +25,7 @@ const Features = () => {
                 <img className="rounded" src={feature.img} alt="Movie" />
               </motion.figure>
               <div className="card-body flex-1">
-                <h2 className="card-title text-2xl">{feature.title}</h2>
+                <h2 className="card-title text-2xl">{feature.title || <Skeleton />}</h2>
                 <p>{feature.description}</p>
               </div>
             </div>
