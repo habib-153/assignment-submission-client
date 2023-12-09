@@ -1,4 +1,5 @@
-features ---
+## Name: Online Group-Study
+#### Features ---
  1) Teachers can assign assignment easily <br>
  2) the students can see their all assignments from my assignment section <br>
  3) Easy to use <br>
